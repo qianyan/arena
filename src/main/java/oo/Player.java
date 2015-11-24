@@ -28,6 +28,6 @@ public class Player {
     }
 
     public boolean isAlive() {
-        return blood > 0;
+        return blood >= 0;
     }
 }
