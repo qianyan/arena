@@ -25,11 +25,24 @@ public class Player {
         return damage;
     }
 
-    public void attack(Player otherPlayer) {
-        otherPlayer.blood -= damage;
-        print(name + "攻击了" + otherPlayer.name + "，" +
-                otherPlayer.name + "受到了" + damage + "点伤害，" +
-                otherPlayer.name + "剩余血量：" + otherPlayer.blood + "\n");
+    public void attack(Player victim) {
+        startAttackTo(victim);
+        victim.isAttacked(damage);
+        endAttack();
+    }
+
+    private void startAttackTo(Player victim) {
+        print(name + "攻击了" + victim.name + "，");
+    }
+
+    private void isAttacked(int damage) {
+        blood -= damage;
+        print(name + "受到了" + damage + "点伤害，" +
+                name + "剩余血量：" + blood);
+    }
+
+    private void endAttack() {
+        print("\n");
     }
 
     public boolean isAlive() {
