@@ -1,5 +1,7 @@
 package oo;
 
+import static oo.Printer.print;
+
 public class Game {
     public void fight(Player firstPlayer, Player secondPlayer) {
         Player loser = firstPlayer;
@@ -14,6 +16,6 @@ public class Game {
             secondPlayer.attack(firstPlayer);
         }
 
-        System.out.print(loser.getName() + "被打败了");
+        print(loser.getName() + "被打败了");
     }
 }
