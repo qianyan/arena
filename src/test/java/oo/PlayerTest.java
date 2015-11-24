@@ -37,6 +37,20 @@ public class PlayerTest {
     }
 
     @Test
+    public void shouldAliveWhenBloodIs0() {
+        Player survivor = new Player("王二麻子", 0, 0);
+
+        assert(survivor.isAlive());
+    }
+
+    @Test
+    public void shouldAliveWhenBloodGreatThan0() {
+        Player survivor = new Player("王二麻子", 1, 0);
+
+        assert(survivor.isAlive());
+    }
+
+    @Test
     public void shouldDeathWhenBloodLessThan0() {
         Player die = new Player("王二麻子", -1, 0);
 
