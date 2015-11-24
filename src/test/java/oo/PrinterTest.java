@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class PrinterTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final static ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
     public void setUp() {
