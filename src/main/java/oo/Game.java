@@ -3,17 +3,17 @@ package oo;
 import static oo.Printer.print;
 
 public class Game {
-    public void fight(Player firstPlayer, Player secondPlayer) {
-        Player loser = firstPlayer;
+    public void fight(Person firstPerson, Person secondPerson) {
+        Person loser = firstPerson;
 
-        while (firstPlayer.isAlive()) {
-            firstPlayer.attack(secondPlayer);
+        while (firstPerson.isAlive()) {
+            firstPerson.attack(secondPerson);
 
-            if (!secondPlayer.isAlive()) {
-                loser = secondPlayer;
+            if (!secondPerson.isAlive()) {
+                loser = secondPerson;
                 break;
             }
-            secondPlayer.attack(firstPlayer);
+            secondPerson.attack(firstPerson);
         }
 
         print(loser.getName() + "被打败了");

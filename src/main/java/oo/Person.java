@@ -2,12 +2,12 @@ package oo;
 
 import static oo.Printer.print;
 
-public class Player {
+public class Person {
     private String name;
     private int blood;
     private int damage;
 
-    public Player(String name, int blood, int damage) {
+    public Person(String name, int blood, int damage) {
         this.name = name;
         this.blood = blood;
         this.damage = damage;
@@ -25,13 +25,13 @@ public class Player {
         return damage;
     }
 
-    public void attack(Player victim) {
+    public void attack(Person victim) {
         startAttackTo(victim);
         victim.isAttacked(damage);
         endAttack();
     }
 
-    private void startAttackTo(Player victim) {
+    private void startAttackTo(Person victim) {
         print(name + "攻击了" + victim.name + "，");
     }
 

@@ -9,7 +9,7 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
-public class PlayerTest {
+public class PersonTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -19,17 +19,17 @@ public class PlayerTest {
 
     @Test
     public void shouldCreatePlayerSuccessfully() {
-        Player player = new Player("王二麻子", 100, 10);
+        Person person = new Person("王二麻子", 100, 10);
 
-        assertThat(player.getName(), is("王二麻子"));
-        assertThat(player.getBlood(), is(100));
-        assertThat(player.getDamage(), is(10));
+        assertThat(person.getName(), is("王二麻子"));
+        assertThat(person.getBlood(), is(100));
+        assertThat(person.getDamage(), is(10));
     }
 
     @Test
     public void shouldCanAttackOtherPlayer() {
-        Player attacker = new Player("张三", 100, 10);
-        Player victim = new Player("李四", 80, 20);
+        Person attacker = new Person("张三", 100, 10);
+        Person victim = new Person("李四", 80, 20);
 
         attacker.attack(victim);
 
@@ -38,29 +38,29 @@ public class PlayerTest {
 
     @Test
     public void shouldAliveWhenBloodIs0() {
-        Player survivor = new Player("王二麻子", 0, 0);
+        Person survivor = new Person("王二麻子", 0, 0);
 
         assert(survivor.isAlive());
     }
 
     @Test
     public void shouldAliveWhenBloodGreatThan0() {
-        Player survivor = new Player("王二麻子", 1, 0);
+        Person survivor = new Person("王二麻子", 1, 0);
 
         assert(survivor.isAlive());
     }
 
     @Test
     public void shouldDeathWhenBloodLessThan0() {
-        Player die = new Player("王二麻子", -1, 0);
+        Person die = new Person("王二麻子", -1, 0);
 
         assertFalse(die.isAlive());
     }
 
     @Test
     public void shouldPrintAttackerAttackedVictimAndVictimGetHowMuchDamageAndHowMuchBloodLeft() {
-        Player attacker = new Player("张三", 100, 10);
-        Player victim = new Player("李四", 100, 10);
+        Person attacker = new Person("张三", 100, 10);
+        Person victim = new Person("李四", 100, 10);
 
         attacker.attack(victim);
 
