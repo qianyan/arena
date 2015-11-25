@@ -45,9 +45,14 @@ public class Person {
     }
 
     private void isAttacked(int damage) {
-        blood -= damage;
-        print(name + "受到了" + damage + "点伤害，" +
+        int shouldReduceBlood = shouldReduceBlood(damage);
+        blood -= shouldReduceBlood;
+        print(name + "受到了" + shouldReduceBlood + "点伤害，" +
                 name + "剩余血量：" + blood);
+    }
+
+    public int shouldReduceBlood(int damage) {
+        return damage;
     }
 
     private void endAttack() {
