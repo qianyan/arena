@@ -31,13 +31,17 @@ public class Person {
     }
 
     public void attack(Person victim) {
-        startAttackTo(victim);
-        victim.isAttacked(damage);
+        startAttackTo(victim.name);
+        victim.isAttacked(getDamage());
         endAttack();
     }
 
-    private void startAttackTo(Person victim) {
-        print(getROLE() + name + "攻击了" + victim.name + "，");
+    protected String attackIdentify() {
+        return getROLE() + name;
+    }
+
+    private void startAttackTo(String victimName) {
+        print(attackIdentify() + "攻击了" + victimName + "，");
     }
 
     private void isAttacked(int damage) {
