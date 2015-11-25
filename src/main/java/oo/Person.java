@@ -26,6 +26,10 @@ public class Person {
         return damage;
     }
 
+    public String getROLE() {
+        return ROLE;
+    }
+
     public void attack(Person victim) {
         startAttackTo(victim);
         victim.isAttacked(damage);
@@ -33,7 +37,7 @@ public class Person {
     }
 
     private void startAttackTo(Person victim) {
-        print(ROLE + name + "攻击了" + victim.name + "，");
+        print(getROLE() + name + "攻击了" + victim.name + "，");
     }
 
     private void isAttacked(int damage) {
