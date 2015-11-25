@@ -1,5 +1,6 @@
 package oo;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,6 +18,11 @@ public class PrinterTest {
     @Before
     public void setUp() {
         System.setOut(new PrintStream(outContent));
+    }
+
+    @After
+    public void tearDown() {
+        System.setOut(null);
     }
 
     @Test

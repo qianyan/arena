@@ -3,6 +3,7 @@ package oo;
 import static oo.Printer.print;
 
 public class Person {
+    private String ROLE = "普通人";
     private String name;
     private int blood;
     private int damage;
@@ -32,7 +33,7 @@ public class Person {
     }
 
     private void startAttackTo(Person victim) {
-        print(name + "攻击了" + victim.name + "，");
+        print(ROLE + name + "攻击了" + victim.name + "，");
     }
 
     private void isAttacked(int damage) {

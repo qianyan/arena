@@ -1,5 +1,6 @@
 package oo;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,6 +16,11 @@ public class PersonTest {
     @Before
     public void setUp() {
         System.setOut(new PrintStream(outContent));
+    }
+
+    @After
+    public void tearDown() {
+        System.setOut(null);
     }
 
     @Test
@@ -64,6 +70,6 @@ public class PersonTest {
 
         attacker.attack(victim);
 
-        assertThat(outContent.toString(), is("张三攻击了李四，李四受到了10点伤害，李四剩余血量：90\n"));
+        assertThat(outContent.toString(), is("普通人张三攻击了李四，李四受到了10点伤害，李四剩余血量：90\n"));
     }
 }

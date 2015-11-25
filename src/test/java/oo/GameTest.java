@@ -32,7 +32,7 @@ public class GameTest {
 
         game.fight(firstPerson, secondPerson);
 
-        assertThat(outContent.toString(), is("张三攻击了李四，李四受到了10点伤害，李四剩余血量：-1\n李四被打败了"));
+        assertThat(outContent.toString(), is("普通人张三攻击了李四，李四受到了10点伤害，李四剩余血量：-1\n李四被打败了"));
     }
 
     @Test
@@ -42,8 +42,8 @@ public class GameTest {
 
         game.fight(firstPerson, secondPerson);
 
-        assertThat(outContent.toString(), is("张三攻击了李四，李四受到了10点伤害，李四剩余血量：10\n" +
-                "李四攻击了张三，张三受到了10点伤害，张三剩余血量：-1\n" +
+        assertThat(outContent.toString(), is("普通人张三攻击了李四，李四受到了10点伤害，李四剩余血量：10\n" +
+                "普通人李四攻击了张三，张三受到了10点伤害，张三剩余血量：-1\n" +
                 "张三被打败了"));
     }
 }
