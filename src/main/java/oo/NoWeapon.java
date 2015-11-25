@@ -7,7 +7,7 @@ public class NoWeapon extends Weapon {
         super(name, damage);
     }
 
-    public String used() {
+    public String isUsed() {
         return "";
     }
 

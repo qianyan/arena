@@ -9,7 +9,7 @@ public class Defence {
         this.weakenDamage = weakenDamage;
     }
 
-    public int getWeakenDamage() {
+    public int weakenDamage() {
         return weakenDamage;
     }
 }

@@ -9,11 +9,11 @@ public class Weapon {
         this.damage = damage;
     }
 
-    public String used() {
+    public String isUsed() {
         return "用" + name;
     }
 
-    public int getDamage() {
+    public int attackDamage() {
         return damage;
     }
 }

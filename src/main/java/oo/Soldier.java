@@ -13,7 +13,7 @@ public class Soldier extends Person {
 
     @Override
     public int getDamage() {
-        return super.getDamage() + weapon.getDamage();
+        return super.getDamage() + weapon.attackDamage();
     }
 
     @Override
@@ -31,11 +31,11 @@ public class Soldier extends Person {
 
     @Override
     protected String attackIdentify() {
-        return getROLE() + getName() + weapon.used();
+        return getROLE() + getName() + weapon.isUsed();
     }
 
     @Override
     public int shouldReduceBlood(int damage) {
-        return (damage > defence.getWeakenDamage()) ? damage - defence.getWeakenDamage() : 0;
+        return (damage > defence.weakenDamage()) ? damage - defence.weakenDamage() : 0;
     }
 }
