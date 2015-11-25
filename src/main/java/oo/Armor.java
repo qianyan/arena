@@ -1,10 +1,10 @@
 package oo;
 
-public class Defence {
+public class Armor {
     private String name;
     private int weakenDamage;
 
-    public Defence(String name, int weakenDamage) {
+    public Armor(String name, int weakenDamage) {
         this.name = name;
         this.weakenDamage = weakenDamage;
     }

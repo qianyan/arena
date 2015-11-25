@@ -15,7 +15,7 @@ public class SoldierTest {
     private Soldier soldier;
     private Person person;
     private Weapon weapon;
-    private Defence defence;
+    private Armor armor;
 
     @Before
     public void setUp() {
@@ -23,7 +23,7 @@ public class SoldierTest {
         soldier = new Soldier("张三", 100, 10);
         person = new Person("李四", 100, 10);
         weapon = new Weapon("优质木棒", 10);
-        defence = new Defence("木遁", 5);
+        armor = new Armor("木遁", 5);
     }
 
     @After
@@ -56,7 +56,7 @@ public class SoldierTest {
 
     @Test
     public void shouldWeakenTheDamageFromAttackerWhenSoldierIsAttacked() {
-        soldier.wearDefence(defence);
+        soldier.wearDefence(armor);
 
         person.attack(soldier);
 
@@ -65,7 +65,7 @@ public class SoldierTest {
 
     @Test
     public void shouldNotAffectSoldierDamageAfterWearDefence() {
-        soldier.wearDefence(defence);
+        soldier.wearDefence(armor);
 
         soldier.attack(person);
 

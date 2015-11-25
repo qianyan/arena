@@ -3,12 +3,12 @@ package oo;
 public class Soldier extends Person {
     private String ROLE = "战士";
     private Weapon weapon;
-    private Defence defence;
+    private Armor armor;
 
     public Soldier(String name, int blood, int damage) {
         super(name, blood, damage);
         weapon = NoWeapon.getInstance();
-        defence = NoDefence.getInstance();
+        armor = NoArmor.getInstance();
     }
 
     @Override
@@ -25,8 +25,8 @@ public class Soldier extends Person {
         this.weapon = weapon;
     }
 
-    public void wearDefence(Defence defence) {
-        this.defence = defence;
+    public void wearDefence(Armor armor) {
+        this.armor = armor;
     }
 
     @Override
@@ -36,6 +36,6 @@ public class Soldier extends Person {
 
     @Override
     public int shouldReduceBlood(int damage) {
-        return (damage > defence.weakenDamage()) ? damage - defence.weakenDamage() : 0;
+        return (damage > armor.weakenDamage()) ? damage - armor.weakenDamage() : 0;
     }
 }
