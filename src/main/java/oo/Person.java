@@ -1,7 +1,5 @@
 package oo;
 
-import static oo.Printer.print;
-
 public class Person {
     private String ROLE = "普通人";
     private String name;
@@ -30,9 +28,9 @@ public class Person {
         return ROLE;
     }
 
-    public void attack(Person victim) {
-        startAttackTo(victim.name);
-        victim.isAttacked(getDamage());
+    public String attack(Person victim) {
+        return startAttackTo(victim.name) +
+        victim.isAttacked(getDamage()) +
         endAttack();
     }
 
@@ -40,23 +38,23 @@ public class Person {
         return getROLE() + name;
     }
 
-    private void startAttackTo(String victimName) {
-        print(attackIdentify() + "攻击了" + victimName + "，");
+    private String startAttackTo(String victimName) {
+        return attackIdentify() + "攻击了" + victimName + ",";
     }
 
-    private void isAttacked(int damage) {
+    private String isAttacked(int damage) {
         int shouldReduceBlood = shouldReduceBlood(damage);
         blood -= shouldReduceBlood;
-        print(name + "受到了" + shouldReduceBlood + "点伤害，" +
-                name + "剩余血量：" + blood);
+        return name + "受到了" + shouldReduceBlood + "点伤害," +
+                name + "剩余生命：" + blood;
     }
 
     public int shouldReduceBlood(int damage) {
         return damage;
     }
 
-    private void endAttack() {
-        print("\n");
+    private String endAttack() {
+        return "\n";
     }
 
     public boolean isAlive() {

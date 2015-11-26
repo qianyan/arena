@@ -1,21 +1,19 @@
 package oo;
 
-import static oo.Printer.print;
-
 public class Game {
-    public void fight(Person firstPerson, Person secondPerson) {
+    public String fight(Person firstPerson, Person secondPerson) {
         Person loser = firstPerson;
-
+        String result = "";
         while (firstPerson.isAlive()) {
-            firstPerson.attack(secondPerson);
+            result += firstPerson.attack(secondPerson);
 
             if (!secondPerson.isAlive()) {
                 loser = secondPerson;
                 break;
             }
-            secondPerson.attack(firstPerson);
+            result += secondPerson.attack(firstPerson);
         }
 
-        print(loser.getName() + "被打败了");
+        return result + loser.getName() + "被打败了";
     }
 }
