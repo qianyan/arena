@@ -58,6 +58,6 @@ public class SoldierTest {
 
         String result = soldier.attack(person);
 
-        assertThat(result, is("战士张三攻击了李四,李四受到ª了10点伤害,李四剩余生命：90\n"));
+        assertThat(result, is("战士张三攻击了李四,李四受到了10点伤害,李四剩余生命：90\n"));
     }
 }
