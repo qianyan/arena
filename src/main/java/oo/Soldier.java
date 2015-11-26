@@ -1,7 +1,6 @@
 package oo;
 
 public class Soldier extends Person {
-    private String ROLE = "战士";
     private Weapon weapon;
     private Armor armor;
 
@@ -12,17 +11,13 @@ public class Soldier extends Person {
     }
 
     @Override
-    public int getDamage() {
-        return super.getDamage() + weapon.attackDamage();
-    }
-
-    @Override
-    public String getROLE() {
-        return ROLE;
+    public String getRole() {
+        return "战士";
     }
 
     public void wearWeapon(Weapon weapon) {
         this.weapon = weapon;
+        this.damage += weapon.attackDamage();
     }
 
     public void wearDefence(Armor armor) {
@@ -31,11 +26,11 @@ public class Soldier extends Person {
 
     @Override
     protected String attackIdentify() {
-        return getROLE() + getName() + weapon.isUsed();
+        return getRole() + getName() + weapon.isUsed();
     }
 
     @Override
-    public int shouldReduceBlood(int damage) {
+    public int bleed(int damage) {
         return (damage > armor.weakenDamage()) ? damage - armor.weakenDamage() : 0;
     }
 }

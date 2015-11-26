@@ -1,10 +1,11 @@
 package oo;
 
+import static java.lang.String.format;
+
 public class Person {
-    private String ROLE = "普通人";
     private String name;
     private int blood;
-    private int damage;
+    protected int damage;
 
     public Person(String name, int blood, int damage) {
         this.name = name;
@@ -20,41 +21,26 @@ public class Person {
         return blood;
     }
 
-    public int getDamage() {
-        return damage;
-    }
-
-    public String getROLE() {
-        return ROLE;
+    public String getRole() {
+        return "普通人";
     }
 
     public String attack(Person victim) {
-        return startAttackTo(victim.name) +
-        victim.isAttacked(getDamage()) +
-        endAttack();
+        return format("%s攻击了%s,%s\n", attackIdentify(), victim.name, victim.isAttacked(damage));
     }
 
     protected String attackIdentify() {
-        return getROLE() + name;
-    }
-
-    private String startAttackTo(String victimName) {
-        return attackIdentify() + "攻击了" + victimName + ",";
+        return getRole() + name;
     }
 
     private String isAttacked(int damage) {
-        int shouldReduceBlood = shouldReduceBlood(damage);
-        blood -= shouldReduceBlood;
-        return name + "受到了" + shouldReduceBlood + "点伤害," +
-                name + "剩余生命：" + blood;
+        int reducedBlood = bleed(damage);
+        blood -= reducedBlood;
+        return format("%s受到了%d点伤害,%s剩余生命：%d", name, reducedBlood, name, blood);
     }
 
-    public int shouldReduceBlood(int damage) {
+    protected int bleed(int damage) {
         return damage;
-    }
-
-    private String endAttack() {
-        return "\n";
     }
 
     public boolean isAlive() {
